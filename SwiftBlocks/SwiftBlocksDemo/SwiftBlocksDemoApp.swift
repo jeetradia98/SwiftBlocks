@@ -1,14 +1,14 @@
 //
-//  SwiftBlocksApp.swift
-//  SwiftBlocks
+//  SwiftBlocksDemoApp.swift
+//  SwiftBlocksDemo
 //
-//  Created by priyal on 10/06/26.
+//  Created by priyal on 12/06/26.
 //
 
 import SwiftUI
 
 @main
-struct SwiftBlocksApp: App {
+struct SwiftBlocksDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

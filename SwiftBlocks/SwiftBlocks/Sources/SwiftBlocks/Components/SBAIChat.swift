@@ -5,6 +5,15 @@ import SwiftUI
 
 // MARK: - SBChatMessage
 
+
+public enum SBRadius {
+   public static let card:    CGFloat = 20
+    public static let tabBar:  CGFloat = 28
+    public static let button:  CGFloat = 14
+    public static let chip:    CGFloat = 99
+    public static let sheet:   CGFloat = 24
+}
+
 public struct SBChatMessage: Identifiable {
     public let id = UUID()
     public let content: String
@@ -288,6 +297,23 @@ public struct SBAIFeatureCard: View {
             .nativeGlass(cornerRadius: SBRadius.card)
         }
         .buttonStyle(.plain)
+    }
+}
+
+extension View {
+    @ViewBuilder
+    public func nativeGlass(cornerRadius: CGFloat = SBRadius.card) -> some View {
+        let shape = RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+        if #available(iOS 26, *) {
+            self.glassEffect(in: shape)
+        } else {
+            self
+                .background(
+                    shape.fill(.ultraThinMaterial)
+                        .overlay(shape.strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+                )
+                .clipShape(shape)
+        }
     }
 }
 

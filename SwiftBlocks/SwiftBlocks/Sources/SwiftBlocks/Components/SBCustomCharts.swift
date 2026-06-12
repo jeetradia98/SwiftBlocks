@@ -8,14 +8,19 @@ import SwiftUI
 // MARK: - SBLineChartView
 
 /// Smooth line chart with grid lines and data point dots.
-struct SBLineChartView: View {
-    let title: String
-    let points: [Double]
-    let labels: [String]
-
+public struct SBLineChartView: View {
+    public let title: String       // ← add public
+    public let points: [Double]    // ← add public
+    public let labels: [String]    // ← add public
+    
     private var maxVal: Double { points.max() ?? 1 }
-
-    var body: some View {
+    
+    public init(title: String, points: [Double], labels: [String]) {
+        self.title = title
+        self.points = points
+        self.labels = labels
+    }
+    public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.system(size: 15, weight: .semibold))
@@ -76,7 +81,7 @@ struct SBLineChartView: View {
 // MARK: - SBAreaChartView
 
 /// Gradient-filled area / sparkline chart.
-struct SBAreaChartView: View {
+public struct SBAreaChartView: View {
     let title: String
     let points: [Double]
     let labels: [String]
@@ -91,7 +96,7 @@ struct SBAreaChartView: View {
                        y: h - h * CGFloat(points[i] / maxVal))
     }
 
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.system(size: 15, weight: .semibold))
@@ -144,13 +149,13 @@ struct SBAreaChartView: View {
 // MARK: - SBHorizontalBarChartView
 
 /// Horizontal progress-bar chart — great for rankings and channel breakdowns.
-struct SBHorizontalBarChartView: View {
+public struct SBHorizontalBarChartView: View {
     let title: String
     let items: [(label: String, value: Double)]
 
     private var maxVal: Double { items.map(\.value).max() ?? 1 }
 
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.system(size: 15, weight: .semibold))
@@ -190,7 +195,7 @@ struct SBHorizontalBarChartView: View {
 /// Side-by-side grouped bar chart for comparing two data series.
 // MARK: - SBGroupedBarChartView
 
-struct SBGroupedBarChartView: View {
+public struct SBGroupedBarChartView: View {
     let title: String
     let groups: [String]
     let seriesA: (label: String, values: [Double], color: Color)
@@ -198,7 +203,7 @@ struct SBGroupedBarChartView: View {
 
     private var maxVal: Double { (seriesA.values + seriesB.values).max() ?? 1 }
 
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             // Title + legend
             HStack {

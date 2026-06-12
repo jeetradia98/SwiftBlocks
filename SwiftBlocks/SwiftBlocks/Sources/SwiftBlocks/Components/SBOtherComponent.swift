@@ -891,3 +891,15 @@ public extension View {
         ))
     }
 }
+
+struct GlassNavBarModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26.0, *) {
+            content
+                .toolbarBackground(.hidden, for: .navigationBar)
+        } else {
+            content
+                .toolbarBackground(.automatic, for: .navigationBar)
+        }
+    }
+}

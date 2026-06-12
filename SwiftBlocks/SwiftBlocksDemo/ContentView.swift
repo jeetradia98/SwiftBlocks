@@ -3,35 +3,6 @@
 
 import SwiftUI
 
-// MARK: - Design Tokens
-
-enum SBRadius {
-    static let card:    CGFloat = 20
-    static let tabBar:  CGFloat = 28
-    static let button:  CGFloat = 14
-    static let chip:    CGFloat = 99
-    static let sheet:   CGFloat = 24
-}
-
-// MARK: - Native Glass Helper
-
-extension View {
-    @ViewBuilder
-    func nativeGlass(cornerRadius: CGFloat = SBRadius.card) -> some View {
-        let shape = RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-        if #available(iOS 26, *) {
-            self.glassEffect(in: shape)
-        } else {
-            self
-                .background(
-                    shape.fill(.ultraThinMaterial)
-                        .overlay(shape.strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
-                )
-                .clipShape(shape)
-        }
-    }
-}
-
 // MARK: - ContentView
 
 struct ContentView: View {
@@ -996,25 +967,6 @@ struct ExtrasView: View {
             .padding(.horizontal, 16)
     }
 }
-
-// MARK: - GlassNavBarModifier
-// Hides the default opaque navigation bar background so that on iOS 26 the
-// system renders a Liquid Glass bar, and on older OS versions falls back to the
-// standard translucent material.  Apply this to every top-level scroll view.
-
-struct GlassNavBarModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 26.0, *) {
-            content
-                .toolbarBackground(.hidden, for: .navigationBar)
-        } else {
-            content
-                .toolbarBackground(.automatic, for: .navigationBar)
-        }
-    }
-}
-
-// MARK: - Preview
 
 #Preview {
     ContentView()
