@@ -15,7 +15,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftBlocks",
-            path: "SwiftBlocks/Sources/SwiftBlocks" 
+            path: "SwiftBlocks/SwiftBlocksSources/SwiftBlocks"
         )
     ]
 )
