@@ -82,9 +82,15 @@ public struct SBLineChartView: View {
 
 /// Gradient-filled area / sparkline chart.
 public struct SBAreaChartView: View {
-    let title: String
-    let points: [Double]
-    let labels: [String]
+    public let title: String      // ← add public
+    public let points: [Double]   // ← add public
+    public let labels: [String]   // ← add public
+
+    public init(title: String, points: [Double], labels: [String]) {
+        self.title = title
+        self.points = points
+        self.labels = labels
+    }
 
     private var maxVal: Double { points.max() ?? 1 }
 
@@ -150,9 +156,13 @@ public struct SBAreaChartView: View {
 
 /// Horizontal progress-bar chart — great for rankings and channel breakdowns.
 public struct SBHorizontalBarChartView: View {
-    let title: String
-    let items: [(label: String, value: Double)]
+    public let title: String
+    public let items: [(label: String, value: Double)]
 
+    public init(title: String, items: [(label: String, value: Double)]) {
+        self.title = title
+        self.items = items
+    }
     private var maxVal: Double { items.map(\.value).max() ?? 1 }
 
     public var body: some View {
@@ -196,10 +206,19 @@ public struct SBHorizontalBarChartView: View {
 // MARK: - SBGroupedBarChartView
 
 public struct SBGroupedBarChartView: View {
-    let title: String
-    let groups: [String]
-    let seriesA: (label: String, values: [Double], color: Color)
-    let seriesB: (label: String, values: [Double], color: Color)
+    public let title: String
+    public let groups: [String]
+    public let seriesA: (label: String, values: [Double], color: Color)
+    public let seriesB: (label: String, values: [Double], color: Color)
+
+    public init(title: String, groups: [String],
+                seriesA: (label: String, values: [Double], color: Color),
+                seriesB: (label: String, values: [Double], color: Color)) {
+        self.title = title
+        self.groups = groups
+        self.seriesA = seriesA
+        self.seriesB = seriesB
+    }
 
     private var maxVal: Double { (seriesA.values + seriesB.values).max() ?? 1 }
 
