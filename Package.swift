@@ -1,11 +1,4 @@
-//
-//  package.swift
-//  
-//
-//  Created by priyal on 12/06/26.
-//
-
-
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
