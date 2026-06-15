@@ -15,30 +15,34 @@ struct ContentView: View {
                     DashboardView(selectedTab: $selectedTab)
                 }
                 .tag(0)
+                .id(0)
 
                 NavigationStack {
                     ComponentsView()
                 }
                 .tag(1)
+                .id(1)
 
                 NavigationStack {
                     FormsView()
                 }
                 .tag(2)
+                .id(2)
 
                 NavigationStack {
                     ProfileView()
                 }
                 .tag(3)
+                .id(3)
                 
                 NavigationStack {
                     ExtrasView()
                 }
                 .tag(4)
+                .id(4)
 
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-
+            .toolbar(.hidden, for: .tabBar)
             SBFloatingGlassBar(
                 items: [
                     .init(title: "Dashboard",  icon: "chart.bar",        iconFilled: "chart.bar.fill"),
@@ -224,17 +228,18 @@ struct DashboardView: View {
 
                 Spacer(minLength: 100)
             }
-            .padding(.top, {
-                if #available(iOS 26, *) {
-                    return 16.0
-                } else {
-                    return 56.0
-                }
-            }())
+            .padding(.top,16)
+//            .padding(.top, {
+//                if #available(iOS 26, *) {
+//                    return 16.0
+//                } else {
+//                    return 56.0
+//                }
+//            }())
         }
         .navigationTitle("Dashboard")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(GlassNavBarModifier())
+//        .modifier(GlassNavBarModifier())
         .sbToast(isPresented: $showToast, message: toastMessage(for: toastType), type: toastType)
         .sbLoading(isLoading, message: "Refreshing data...")
     }
@@ -392,17 +397,11 @@ struct ComponentsView: View {
 
                 Spacer(minLength: 100)
             }
-            .padding(.top, {
-                if #available(iOS 26, *) {
-                    return 16.0
-                } else {
-                    return 56.0
-                }
-            }())
+            .padding(.top,16)
         }
         .navigationTitle("Components")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(GlassNavBarModifier())
+//        .modifier(GlassNavBarModifier())
         .sbBottomSheet(isPresented: $showSheet) {
             VStack(spacing: 16) {
                 SBPageHeader(title: "Bottom Sheet", subtitle: "iOS-native sheet with drag indicator")
@@ -527,17 +526,10 @@ struct FormsView: View {
                     .padding(.horizontal, 16)
                     .padding(.bottom, 100)
             }
-            .padding(.top, {
-                if #available(iOS 26, *) {
-                    return 16.0
-                } else {
-                    return 56.0
-                }
-            }())
+            .padding(.top,16)
         }
         .navigationTitle("Forms")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(GlassNavBarModifier())
         .sbToast(isPresented: $showToast, message: "Settings saved!", type: .success)
     }
 
@@ -671,17 +663,11 @@ struct ProfileView: View {
             }
             // ── CHANGE: was 16, now 56 ──
             
-            .padding(.top, {
-                if #available(iOS 26, *) {
-                    return 16.0
-                } else {
-                    return 56.0
-                }
-            }())
+            .padding(.top,16)
         }
         .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
-        .modifier(GlassNavBarModifier())
+//        .modifier(GlassNavBarModifier())
         .fullScreenCover(isPresented: $showOnboarding) {
             SBOnboardingView(pages: [
                 .init(icon: "star.fill",    title: "Welcome to SwiftBlocks",
@@ -928,18 +914,11 @@ struct ExtrasView: View {
                 .padding(.horizontal, 16)
                 Spacer(minLength: 100)
             }
-            .padding(.top, {
-                if #available(iOS 26, *) { return 16.0 } else { return 56.0 }
-            }())
+            .padding(.top,16)
         }
-        .sbToolbar(
-            title: "Extras",
-            subtitle: "",
-            trailing: [.init("Up", icon: "chevron.up", action: {}) , .init("Down", icon: "chevron.down") { }]
-        )
-//        .navigationTitle("Extras")
-//        .navigationBarTitleDisplayMode(.inline)
-        .modifier(GlassNavBarModifier())
+        .navigationTitle("Extra View")
+        .navigationBarTitleDisplayMode(.inline)
+//        .modifier(GlassNavBarModifier())
         .sbSnackbar(
             isPresented: $showSnackbar,
             message: "Changes saved successfully",

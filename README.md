@@ -30,14 +30,14 @@ Stop rebuilding the same buttons, cards, inputs, sheets, empty states, loaders, 
 In Xcode: **File → Add Package Dependencies**
 
 ```
-https://github.com/yourusername/SwiftBlocks
+https://github.com/jeetradia98/SwiftBlocks
 ```
 
 Or add to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/SwiftBlocks", from: "1.0.0")
+    .package(url: "https://github.com/jeetradia98/SwiftBlocks", from: "1.0.0")
 ]
 ```
 
@@ -464,10 +464,5 @@ MIT License — free for personal and commercial use.
 
 ---
 
-## Built by Devine Globe
-
-SwiftBlocks is built and maintained by [Devine Globe](https://devineglobetech.com) — an AI-led software agency for scalable mobile apps, SaaS products, and enterprise software.
-
----
 
 *SwiftBlocks — Build beautiful iOS apps faster.*

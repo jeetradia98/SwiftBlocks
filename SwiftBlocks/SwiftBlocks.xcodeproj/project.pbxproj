@@ -71,11 +71,6 @@
 			path = SwiftBlocksDemo;
 			sourceTree = "<group>";
 		};
-		1791C2122FDC17EC00DDC783 /* SwiftBlocksKit */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftBlocksKit;
-			sourceTree = "<group>";
-		};
 		17A27E4B2FD946B300597E67 /* SwiftBlocks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -110,7 +105,6 @@
 			children = (
 				17A27E4B2FD946B300597E67 /* SwiftBlocks */,
 				1791C1E82FDC116900DDC783 /* SwiftBlocksDemo */,
-				1791C2122FDC17EC00DDC783 /* SwiftBlocksKit */,
 				17A27E4A2FD946B300597E67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,9 +165,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				1791C2122FDC17EC00DDC783 /* SwiftBlocksKit */,
 			);
 			name = SwiftBlocks;
 			packageProductDependencies = (
@@ -269,6 +260,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +296,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
